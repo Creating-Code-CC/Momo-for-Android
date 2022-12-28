@@ -24,7 +24,7 @@ const DocumentsScreen = ({navigation}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer Your API Key'
           },
           body: JSON.stringify({
             "prompt": `Give me 5 documents that I may need to bring for the following: ${destination}. give the 5 documents in numerical order`,

@@ -23,7 +23,7 @@ const AttendEventScreen = ({navigation}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Your API Key'
           },
           body: JSON.stringify({
             "prompt": `Give me 10 items to for the following: ${destination}.`,

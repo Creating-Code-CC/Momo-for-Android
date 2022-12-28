@@ -23,7 +23,7 @@ const AttireScreen = ({navigation}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer Your API Key'
           },
           body: JSON.stringify({
             "prompt": `Give me 5 men's outfit suggestions to wear to the following:  ${destination}. Give the 5 suggestions in numerical order`,
