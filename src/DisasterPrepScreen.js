@@ -1,6 +1,6 @@
 import React, { useState, useRef  } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, FlatList, TouchableOpacity, DrawerLayoutAndroid} from 'react-native';
-
+import Tts from 'react-native-tts';
 const DisasterPrepScreen = ({navigation}) => {
     const [items, setItems] = useState([]);
     const [newItem, setNewItem] = useState('');
@@ -23,7 +23,7 @@ const DisasterPrepScreen = ({navigation}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${Your API_KEY} `
+            'Authorization': 'Bearer Your API Key'
           },
           body: JSON.stringify({
             "prompt": `What are the 10 most essential items I need to be prepared for a ${destination}. give the items in numerical order`,
@@ -92,6 +92,7 @@ const DisasterPrepScreen = ({navigation}) => {
           )}
           keyExtractor={item => item}
         />
+        <Button title="Speak List" onPress={() => Tts.speak(items.join(', '))} />
         <TextInput
           value={newItem}
           onChangeText={text => setNewItem(text)}

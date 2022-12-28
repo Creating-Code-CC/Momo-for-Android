@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, FlatList, TouchableOpacity, DrawerLayoutAndroid} from 'react-native';
-
+import Tts from 'react-native-tts';
 
 const AttireScreen = ({navigation}) => {
     const [items, setItems] = useState([]);
@@ -92,6 +92,7 @@ const AttireScreen = ({navigation}) => {
           )}
           keyExtractor={item => item}
         />
+        <Button title="Speak List" onPress={() => Tts.speak(items.join(', '))} />
         <TextInput
           value={newItem}
           onChangeText={text => setNewItem(text)}

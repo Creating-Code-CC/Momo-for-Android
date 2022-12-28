@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { View, TextInput, Button, Text, StyleSheet, FlatList, TouchableOpacity, DrawerLayoutAndroid} from 'react-native';
-
+import Tts from 'react-native-tts';
 
 const AttendEventScreen = ({navigation}) => {
     const [items, setItems] = useState([]);
@@ -15,7 +15,6 @@ const AttendEventScreen = ({navigation}) => {
         justifyContent: 'center',
       }
     });
-  
     const fetchData = async () => {
       const response = await fetch(
         'https://api.openai.com/v1/completions',
@@ -23,10 +22,10 @@ const AttendEventScreen = ({navigation}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Your API Key'
+            'Authorization': 'Bearer Your API Key'
           },
           body: JSON.stringify({
-            "prompt": `Give me 10 items to for the following: ${destination}.`,
+            "prompt": `Give me 10 items to pack for the following: ${destination}. Give the 10 items in numerical order`,
             "model": "text-davinci-002",
             "max_tokens": 100,
             "top_p": 1,
@@ -92,6 +91,7 @@ const AttendEventScreen = ({navigation}) => {
           )}
           keyExtractor={item => item}
         />
+        <Button title="Speak List" onPress={() => Tts.speak(items.join(', '))} />
         <TextInput
           value={newItem}
           onChangeText={text => setNewItem(text)}
