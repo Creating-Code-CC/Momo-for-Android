@@ -1,5 +1,3 @@
-import React, { useState,useRef } from 'react';
-import { Button, View, Text, StyleSheet, Image, TouchableOpacity, DrawerLayoutAndroid } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AttendEvent from './AttendEventScreen';

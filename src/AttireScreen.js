@@ -23,7 +23,7 @@ const AttireScreen = ({navigation}) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer Your API Key'
+            'Authorization': 'Bearer YOUR API KEY'
           },
           body: JSON.stringify({
             "prompt": `Give me 5 men's outfit suggestions to wear to the following:  ${destination}. Give the 5 suggestions in numerical order`,
@@ -51,12 +51,12 @@ const AttireScreen = ({navigation}) => {
     };
   
     const navigationView = () => (
-      <View style={[styles.container, styles.navigationContainer]}>
-        <Text style={styles.paragraph}>Attent Event</Text>
-        <Text style={styles.paragraph} onPress={() => navigation.navigate('Plan')}>Plan Event</Text>
-        <Text style={styles.paragraph} onPress={() => navigation.navigate('DisasterPrep')}>Disaster Prep</Text>
-        <Text style={styles.paragraph} onPress={() => navigation.navigate('Documents')}>Documents</Text>
-        <Text style={styles.paragraph} onPress={() => navigation.navigate('Attire')}>Attire</Text>
+      <View style={[styles.container]}>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}} onPress={() => navigation.navigate('Attend')}>Attent Event</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}} onPress={() => navigation.navigate('Plan')}>Plan Event</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}} onPress={() => navigation.navigate('DisasterPrep')}>Disaster Prep</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}} onPress={() => navigation.navigate('Documents')}>Documents</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold'}} onPress={() => navigation.navigate('Attire')}>Attire</Text>
         <Button title="Close drawer" onPress={() => drawer.current.closeDrawer()}/>
       </View>
     );
